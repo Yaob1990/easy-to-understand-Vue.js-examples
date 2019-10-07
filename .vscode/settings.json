@@ -1,0 +1,94 @@
+{
+  "editor.wordWrap": "on",
+  "window.zoomLevel": 1,
+  "editor.fontSize": 15,
+  "search.exclude": {
+    "**/dist": true
+  },
+  "editor.minimap.enabled": false, //关闭快速预览
+  "files.autoSave": "off", //打开自动保存
+  "editor.lineNumbers": "on", //开启行数提示
+  "editor.quickSuggestions": {
+    //开启自动显示建议
+    "other": true,
+    "comments": true,
+    "strings": true
+  },
+  "editor.tabSize": 4, //每次保存自动格式化
+  "eslint.autoFixOnSave": true, // 每次保存的时候将代码按eslint格式进行修复
+  "prettier.eslintIntegration": true, //让prettier使用eslint的代码格式进行校验
+  "prettier.semi": false, //去掉代码结尾的分号
+  "prettier.singleQuote": true, //使用带引号替代双引号
+  "vetur.format.defaultFormatter.html": "js-beautify-html", //格式化.vue中html
+  "vetur.format.defaultFormatter.js": "vscode-typescript", //让vue中的js按编辑器自带的ts格式进行格式化
+  "vetur.format.defaultFormatterOptions": {
+    "js-beautify-html": {
+      "wrap_attributes": "auto" //属性强制折行对齐
+    }
+  },
+  "eslint.validate": [
+    //开启对.vue文件中错误的检查
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": false, //让函数(名)和后面的括号之间加个空格
+  "cSpell.userWords": [
+    "Baberrage",
+    "Testcase",
+    "Vconsole",
+    "bindgetuserinfo",
+    "bodyparser",
+    "devtools",
+    "emtj",
+    "leetcode",
+    "micromessenger",
+    "nums",
+    "ttjj",
+    "wechat"
+  ],
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "sync.gist": "dde9f8a671203479004989894cfe7d46",
+  "git.autofetch": true,
+  "leetcode.endpoint": "leetcode-cn",
+  "leetcode.workspaceFolder": "g:\\算法刷题\\leetCode",
+  "leetcode.hint.commandShortcut": false,
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.defaultLanguage": "javascript",
+  "leetcode.showCommentDescription": true,
+  "leetcode.hint.commentDescription": false,
+  "git.postCommitCommand": "push",
+  "git.enableSmartCommit": true,
+  "extensions.ignoreRecommendations": false,
+  "git.confirmSync": false,
+  "explorer.confirmDelete": false,
+  "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.rendererType": "dom",
+  "todohighlight.keywords": [{
+    "text": "为什么",
+    "color": "#ff0000",
+    "backgroundColor": "yellow",
+    "overviewRulerColor": "grey"
+  }],
+  "code-runner.runInTerminal": true,
+  "code-runner.executorMap": {
+    "scheme": "scheme $fullFileName",
+  }
+}

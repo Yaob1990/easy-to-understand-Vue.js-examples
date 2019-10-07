@@ -1,7 +1,7 @@
-import {isObject} from './util.js'
+import { isObject } from './util.js'
 
 export default class Watcher {
-  constructor (vm, expOrFn, cb, options) {
+  constructor(vm, expOrFn, cb, options) {
     this.vm = vm
 
     // 新增
@@ -18,7 +18,7 @@ export default class Watcher {
     this.value = this.get()
   }
 
-  get () {
+  get() {
     window.target = this
     let value = this.getter.call(this.vm, this.vm)
     if (this.deep) {
@@ -28,7 +28,7 @@ export default class Watcher {
     return value
   }
 
-  addDep (dep) {
+  addDep(dep) {
     const id = dep.id
     if (!this.depIds.has(id)) {
       this.depIds.add(id)
@@ -37,14 +37,14 @@ export default class Watcher {
     }
   }
 
-  teardown () {
+  teardown() {
     let i = this.deps.length
     while (i--) {
       this.deps[i].removeSub(this)
     }
   }
 
-  update () {
+  update() {
     const oldValue = this.value
     this.value = this.get()
     this.cb.call(this.vm, this.value, oldValue)
@@ -55,12 +55,12 @@ export default class Watcher {
  * Parse simple path.
  */
 const bailRE = /[^\w.$]/
-export function parsePath (path) {
+export function parsePath(path) {
   if (bailRE.test(path)) {
     return
   }
   const segments = path.split('.')
-  return function (obj) {
+  return function(obj) {
     for (let i = 0; i < segments.length; i++) {
       if (!obj) return
       obj = obj[segments[i]]
@@ -70,12 +70,12 @@ export function parsePath (path) {
 }
 
 const seenObjects = new Set()
-export function traverse (val) {
+export function traverse(val) {
   _traverse(val, seenObjects)
   seenObjects.clear()
 }
 
-function _traverse (val, seen) {
+function _traverse(val, seen) {
   let i, keys
   const isA = Array.isArray(val)
   if ((!isA && !isObject(val)) || Object.isFrozen(val)) {

@@ -3,51 +3,59 @@ import Vue from '../../core/index.js'
 const vue = new Vue({
   data: {
     title: 'users',
-    deep: {a: {b: {name: 'berwin'}}},
-    list: [{name: 'berwin', age: 22}]
+    deep: { a: { b: { name: 'berwin' } } },
+    list: [{ name: 'berwin', age: 22 }]
   }
 })
 
 window.vue = vue
 
-const unwatchList = vue.$watch('data.list', (newValue) => {
+const unwatchList = vue.$watch('data.list', newValue => {
   console.log('list: ', newValue)
 })
 
-const unwatchDeep = vue.$watch('data.deep', (newValue, oldValue) => {
-  console.log('deep: ', newValue, oldValue)
-}, {deep: true})
+const unwatchDeep = vue.$watch(
+  'data.deep',
+  (newValue, oldValue) => {
+    console.log('deep: ', newValue, oldValue)
+  },
+  { deep: true }
+)
 
-const unwatchTitle = vue.$watch('data.title', (newValue, oldValue) => {
-  console.log('title: ', newValue, oldValue)
-}, {immediate: true})
+const unwatchTitle = vue.$watch(
+  'data.title',
+  (newValue, oldValue) => {
+    console.log('title: ', newValue, oldValue)
+  },
+  { immediate: true }
+)
 
 const handlers = {
-  fetch () {
+  fetch() {
     console.log(vue.data)
   },
-  push () {
-    vue.data.list.push({name: 'bowen', age: Math.random()})
+  push() {
+    vue.data.list.push({ name: 'bowen', age: Math.random() })
   },
-  changeTitle () {
+  changeTitle() {
     vue.data.title = Math.random()
   },
-  deepChange () {
+  deepChange() {
     vue.data.deep.a.b.name = Math.random()
   },
-  set () {
+  set() {
     vue.$set(vue.data, 'name', Math.random())
   },
-  del () {
+  del() {
     vue.$delete(vue.data.deep, 'a')
   },
-  unwatch () {
+  unwatch() {
     unwatchList()
     unwatchTitle()
     unwatchDeep()
   }
 }
 
-document.body.onclick = function (event) {
+document.body.onclick = function(event) {
   handlers[event.target.id] && handlers[event.target.id]()
 }
